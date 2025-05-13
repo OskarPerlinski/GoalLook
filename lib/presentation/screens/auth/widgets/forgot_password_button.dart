@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:goallook/presentation/theme/app_typography.dart';
 
 class ForgotPasswordButton extends StatelessWidget {
@@ -7,7 +8,7 @@ class ForgotPasswordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () => context.go('/resetPassword'),
       child: Align(
         alignment: Alignment.centerRight,
         child: Text(
