@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:goallook/presentation/theme/app_colors.dart';
 import 'package:goallook/presentation/theme/app_dimens.dart';
 
@@ -13,7 +14,10 @@ class AuthSelectionButtons extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              child: FilledButton(onPressed: () {}, child: Text('Login')),
+              child: FilledButton(
+                onPressed: () => context.go('/loginPage'),
+                child: Text('Login'),
+              ),
             ),
             SizedBox(width: AppDimens.s),
             Expanded(
