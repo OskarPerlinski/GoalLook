@@ -22,7 +22,7 @@ class AuthSelectionButtons extends StatelessWidget {
             SizedBox(width: AppDimens.s),
             Expanded(
               child: FilledButton(
-                onPressed: () {},
+                onPressed: () => context.go('/createAccount'),
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(AppColors.white),
                   side: WidgetStateProperty.all(
