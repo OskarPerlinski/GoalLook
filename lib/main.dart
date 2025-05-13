@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:goallook/core/di/di.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupDependencies();
   runApp(const MyApp());
 }
 
@@ -12,11 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const Scaffold(),
     );
   }
 }
-
