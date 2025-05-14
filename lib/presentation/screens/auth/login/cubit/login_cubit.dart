@@ -28,4 +28,19 @@ class LoginCubit extends ActionCubit<LoginState, LoginAction> {
       dispatch(LoginAction.hideLoading());
     }
   }
+
+  Future<void> loginWithGoogle() async {
+    dispatch(const LoginAction.showLoading());
+
+    try {
+      await _authRepository.signInWithGoogle();
+      dispatch(const LoginAction.success());
+    } on AuthException catch (e) {
+      emit(LoginInitial(errorMessage: e.message));
+    } catch (e) {
+      dispatch(LoginAction.showErrorMessage("An error occurred during login."));
+    } finally {
+      dispatch(const LoginAction.hideLoading());
+    }
+  }
 }
