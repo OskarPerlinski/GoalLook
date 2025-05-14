@@ -6,7 +6,9 @@ import 'package:goallook/presentation/screens/auth/login/cubit/login_state.dart'
 import 'package:goallook/presentation/screens/auth/widgets/auth_header.dart';
 import 'package:goallook/presentation/screens/auth/widgets/create_account_button.dart';
 import 'package:goallook/presentation/screens/auth/widgets/forgot_password_button.dart';
+import 'package:goallook/presentation/screens/auth/widgets/other_options_to_login.dart';
 import 'package:goallook/presentation/screens/auth/widgets/password_field.dart';
+import 'package:goallook/presentation/screens/auth/widgets/google_button.dart';
 import 'package:goallook/presentation/theme/app_colors.dart';
 import 'package:goallook/presentation/theme/app_dimens.dart';
 import 'package:goallook/presentation/theme/app_spacings.dart';
@@ -111,6 +113,13 @@ class LoginPage extends HookWidget {
                     ),
                     AppSpacings.medium(),
                     CreateAccountButton(),
+                    AppSpacings.xLarge(),
+                    OtherOptionsToLogin(),
+                    AppSpacings.xLarge(),
+                    GoogleButton(
+                      text: 'Sign in with Google',
+                      onPressed: cubit.loginWithGoogle,
+                    ),
                     AppSpacings.small(),
                   ],
                 ),
