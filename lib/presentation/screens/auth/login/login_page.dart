@@ -23,7 +23,7 @@ class LoginPage extends HookWidget {
     final state = useBlocBuilder(cubit);
 
     useActionListener(cubit, (action) {
-      switch (state) {
+      switch (action) {
         case LoginSuccess():
           //context.go(AppRoutes.homePage);
           ScaffoldMessenger.of(context).showSnackBar(
