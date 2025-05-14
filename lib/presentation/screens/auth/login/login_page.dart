@@ -13,6 +13,8 @@ class LoginPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final passwordController = useTextEditingController();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -28,7 +30,7 @@ class LoginPage extends HookWidget {
                 AppSpacings.xLarge(),
                 TextFormField(decoration: InputDecoration(hintText: 'Email')),
                 AppSpacings.medium(),
-                PasswordField(text: 'Password'),
+                PasswordField(text: 'Password', controller: passwordController,),
                 AppSpacings.small(),
                 ForgotPasswordButton(),
                 AppSpacings.xLarge(),
