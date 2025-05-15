@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:goallook/widgets/appbar/basic_appbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,9 +7,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: BasicAppbar(),
       body: Column(
         children: [
-
         ],
       ),
     );
