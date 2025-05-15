@@ -6,12 +6,13 @@ import 'package:goallook/presentation/screens/auth/create_account/create_account
 import 'package:goallook/presentation/screens/auth/login/login_page.dart';
 import 'package:goallook/presentation/screens/auth/reset_password/reset_password_page.dart';
 import 'package:goallook/presentation/screens/home/home_page.dart';
+import 'package:goallook/presentation/screens/splash/splash_page.dart';
 
 part 'app_router.g.dart';
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: AppRoutes.selectionPage,
+    initialLocation: AppRoutes.splashPage,
     routes: $appRoutes,
   );
 }
@@ -53,5 +54,13 @@ class HomePageRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const HomePage();
+  }
+}
+
+@TypedGoRoute<SplashPageRoute>(path: AppRoutes.splashPage)
+class SplashPageRoute extends GoRouteData {
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SplashPage();
   }
 }
