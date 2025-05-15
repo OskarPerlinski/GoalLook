@@ -5,6 +5,7 @@ import 'package:goallook/presentation/screens/auth/auth_selection/auth_selection
 import 'package:goallook/presentation/screens/auth/create_account/create_account_page.dart';
 import 'package:goallook/presentation/screens/auth/login/login_page.dart';
 import 'package:goallook/presentation/screens/auth/reset_password/reset_password_page.dart';
+import 'package:goallook/presentation/screens/home/home_page.dart';
 
 part 'app_router.g.dart';
 
@@ -44,5 +45,13 @@ class ResetPasswordRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const ResetPasswordPage();
+  }
+}
+
+@TypedGoRoute<HomePageRoute>(path: AppRoutes.homePage)
+class HomePageRoute extends GoRouteData {
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const HomePage();
   }
 }
