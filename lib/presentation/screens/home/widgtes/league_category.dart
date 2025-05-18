@@ -53,34 +53,42 @@ class LeagueCategory extends HookWidget {
             AppSpacings.medium(),
             GridView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: league.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 childAspectRatio: 0.8,
               ),
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Container(
-                      height: 200,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: NetworkImage(
+                return SizedBox(
+                  height: 240,
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: SizedBox(
+                          height: 160,
+                          width: double.infinity,
+                          child: Image.network(
                             ImageDisplayHelper.generateLeagueCategoryImageURL(
                               league[index].image,
                             ),
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
-                    ),
-                    AppSpacings.small(),
-                    Text(league[index].name, style: AppTypography.h4.copyWith(fontWeight: FontWeight.w700)),
-                  ],
+                      AppSpacings.small(),
+                      Text(
+                        league[index].name,
+                        style: AppTypography.h4.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
