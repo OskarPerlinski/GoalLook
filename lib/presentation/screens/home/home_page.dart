@@ -19,6 +19,9 @@ class HomePage extends StatelessWidget {
               JerseyList(text: 'New Jersey', type: JerseyType.newJersey),
               AppSpacings.medium(),
               LeagueCategory(),
+              AppSpacings.xLarge(),
+              JerseyList(text: 'Popular Jersey', type: JerseyType.topSellings),
+              AppSpacings.medium()
             ],
           ),
         ),
