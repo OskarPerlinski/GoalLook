@@ -16,6 +16,7 @@ class JerseyCubit extends ActionCubit<JerseyState, JerseyAction> {
     try {
       final jersey = switch (type) {
         JerseyType.newJersey => await _jerseyRepository.getNewJersey(),
+        JerseyType.topSellings => await _jerseyRepository.getTopSellings(),
       };
       emit(JerseyState.loaded(jersey));
     } catch (e) {

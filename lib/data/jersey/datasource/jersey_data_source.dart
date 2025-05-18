@@ -16,4 +16,16 @@ class JerseyDataSource {
       throw Exception('Failed to load.');
     }
   }
+
+  Future<QuerySnapshot> getTopSellings() async {
+    try {
+      return await _firestore
+          .collection('jersey')
+          .orderBy('sold', descending: true)
+          .limit(10)
+          .get();
+    } catch (e) {
+      throw Exception('Failed to load.');
+    }
+  }
 }
