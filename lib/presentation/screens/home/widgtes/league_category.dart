@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:goallook/presentation/assets/image_display_helper.dart';
 import 'package:goallook/presentation/screens/home/cubit/league/league_action.dart';
 import 'package:goallook/presentation/screens/home/cubit/league/league_cubit.dart';
@@ -18,9 +19,9 @@ class LeagueCategory extends HookWidget {
     final state = useBlocBuilder(cubit);
 
     useActionListener(cubit, (action) {
-      if (state is LeagueNavigateToDetail) {
-        // final leagueId = action.productId,
-        // context.go('/categoryDetail/$leagueId');
+      if (action is LeagueNavigateToDetail) {
+        final leagueId = action.leagueId;
+        context.go('/leagueCollections/$leagueId');
       }
     });
 
@@ -64,30 +65,38 @@ class LeagueCategory extends HookWidget {
               itemBuilder: (context, index) {
                 return SizedBox(
                   height: 240,
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: SizedBox(
-                          height: 160,
-                          width: double.infinity,
-                          child: Image.network(
-                            ImageDisplayHelper.generateLeagueCategoryImageURL(
-                              league[index].image,
+                  child: GestureDetector(
+                    onTap: () {
+                      context.push(
+                        '/leagueCollections/${league[index].leagueId}',
+                        extra: league[index],
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: SizedBox(
+                            height: 160,
+                            width: double.infinity,
+                            child: Image.network(
+                              ImageDisplayHelper.generateLeagueCategoryImageURL(
+                                league[index].image,
+                              ),
+                              fit: BoxFit.fill,
                             ),
-                            fit: BoxFit.fill,
                           ),
                         ),
-                      ),
-                      AppSpacings.small(),
-                      Text(
-                        league[index].name,
-                        style: AppTypography.h4.copyWith(
-                          fontWeight: FontWeight.w700,
+                        AppSpacings.small(),
+                        Text(
+                          league[index].name,
+                          style: AppTypography.h4.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },

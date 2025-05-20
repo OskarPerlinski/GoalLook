@@ -31,4 +31,14 @@ class JerseyRepositoryImpl implements JerseyRepository {
       return _jerseyMapper.toDomain(dto);
     }).toList();
   }
+
+  @override
+  Future<List<JerseyModels>> getJerseyByCollectionsId(String leagueId) async {
+    final response = await _jerseyDataSource.getJerseyByCollectionsId(leagueId);
+    return response.docs.map((doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      final dto = JerseyModelsDto.fromJson(data);
+      return _jerseyMapper.toDomain(dto);
+    }).toList();
+  }
 }
