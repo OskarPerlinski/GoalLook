@@ -13,7 +13,8 @@ abstract class JerseyModels with _$JerseyModels{
     required String player,
     required int price,
     required String season,
-    required List<String> size,
+    required String size,
     required int sold,
+    required String raiting,
   }) = _JerseyModels;
 }

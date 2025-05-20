@@ -16,6 +16,7 @@ class JerseyMapper {
       season: jersey.season,
       size: jersey.size,
       sold: jersey.sold,
+      raiting: jersey.raiting,
     );
   }
 
@@ -31,6 +32,7 @@ class JerseyMapper {
       season: dto.season,
       size: dto.size,
       sold: dto.sold,
+      raiting: dto.raiting
     );
   }
 }

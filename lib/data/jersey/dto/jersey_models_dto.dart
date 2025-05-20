@@ -15,8 +15,9 @@ abstract class JerseyModelsDto with _$JerseyModelsDto {
     required String player,
     required int price,
     required String season,
-    required List<String> size,
+    required String size,
     required int sold,
+    required String raiting,
   }) = _JerseyModelsDto;
 
   factory JerseyModelsDto.fromJson(Map<String, dynamic> json) =>

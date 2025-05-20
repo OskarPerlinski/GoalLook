@@ -10,12 +10,15 @@ class BasicButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: AppDimens.xxl,
-      width: double.infinity,
-      child: FilledButton(
-        onPressed: onPressed,
-        child: Text(text, style: AppTypography.h2),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppDimens.ml),
+      child: SizedBox(
+        height: AppDimens.xxl,
+        width: double.infinity,
+        child: FilledButton(
+          onPressed: onPressed,
+          child: Text(text, style: AppTypography.h2),
+        ),
       ),
     );
   }
