@@ -6,4 +6,5 @@ class AppRoutes {
   static const String homePage = '/homePage';
   static const String splashPage = '/splashPage';
   static const String leagueCollections = '/leagueCollections/:leagueId';
+  static const String jerseyDetail = '/jerseyDetail/:jerseyId';
 }

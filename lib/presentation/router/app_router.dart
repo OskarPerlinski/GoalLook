@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:goallook/domain/jersey/models/jersey_models.dart';
 import 'package:goallook/domain/league/models/league_models.dart';
 import 'package:goallook/presentation/router/routes/app_routes.dart';
 import 'package:goallook/presentation/screens/auth/auth_selection/auth_selection_page.dart';
@@ -7,6 +8,7 @@ import 'package:goallook/presentation/screens/auth/create_account/create_account
 import 'package:goallook/presentation/screens/auth/login/login_page.dart';
 import 'package:goallook/presentation/screens/auth/reset_password/reset_password_page.dart';
 import 'package:goallook/presentation/screens/home/home_page.dart';
+import 'package:goallook/presentation/screens/jersey_detail/jersey_detail_page.dart';
 import 'package:goallook/presentation/screens/league_collections/league_collections_page.dart';
 import 'package:goallook/presentation/screens/splash/splash_page.dart';
 
@@ -80,5 +82,20 @@ class LeagueCollectionsRoute extends GoRouteData {
       leagueId: leagueId,
       leagueModels: leagueModels,
     );
+  }
+}
+
+@TypedGoRoute<JerseyDetailPageRoute>(
+  path: AppRoutes.jerseyDetail,
+)
+class JerseyDetailPageRoute extends GoRouteData {
+  JerseyDetailPageRoute({required this.jerseyId});
+
+  final String jerseyId;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    final jerseyModels = state.extra as JerseyModels;
+    return JerseyDetailPage(jerseyId: jerseyId, jerseyModels: jerseyModels);
   }
 }

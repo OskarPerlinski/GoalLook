@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:goallook/domain/jersey/models/jersey_type.dart';
 import 'package:goallook/presentation/assets/image_display_helper.dart';
 import 'package:goallook/presentation/screens/home/cubit/jersey/jersey_action.dart';
@@ -22,9 +23,9 @@ class JerseyList extends HookWidget {
     final state = useBlocBuilder(cubit);
 
     useActionListener(cubit, (action) {
-      if (state is JerseyNavigateToDetail) {
-        // final jerseyId = action.jerseyId,
-        // context.go('/detail/$productId');
+      if (action is JerseyNavigateToDetail) {
+        final jerseyId = action.jerseyId;
+        context.go('/jerseyDetail/$jerseyId');
       }
     });
 
@@ -63,46 +64,53 @@ class JerseyList extends HookWidget {
                 itemBuilder: (context, index) {
                   return SizedBox(
                     width: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Zdjęcie
-                        Container(
-                          height: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(AppDimens.s),
-                            image: DecorationImage(
-                              fit: BoxFit.contain,
-                              image: NetworkImage(
-                                ImageDisplayHelper.generateJerseyImageURL(
-                                  jersey[index].images[1],
+                    child: GestureDetector(
+                      onTap: () {
+                        context.push(
+                          '/jerseyDetail/${jersey[index].jerseyId}',
+                          extra: jersey[index],
+                        );
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(AppDimens.s),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: NetworkImage(
+                                  ImageDisplayHelper.generateJerseyImageURL(
+                                    jersey[index].images[1],
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: AppDimens.s),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                jersey[index].name,
-                                style: AppTypography.h5.copyWith(
-                                  fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: EdgeInsets.only(top: AppDimens.s),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  jersey[index].name,
+                                  style: AppTypography.h5.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              SizedBox(height: AppDimens.xs),
-                              Text(
-                                "\$${jersey[index].price}",
-                                style: AppTypography.h6,
-                              ),
-                            ],
+                                SizedBox(height: AppDimens.xs),
+                                Text(
+                                  "\$${jersey[index].price}",
+                                  style: AppTypography.h6,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },

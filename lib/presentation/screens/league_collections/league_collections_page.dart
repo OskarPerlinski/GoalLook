@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:goallook/domain/league/models/league_models.dart';
 import 'package:goallook/presentation/screens/league_collections/cubit/league_collections_action.dart';
 import 'package:goallook/presentation/screens/league_collections/cubit/league_collections_cubit.dart';
@@ -27,9 +28,9 @@ class LeagueCollectionsPage extends HookWidget {
     final state = useBlocBuilder(cubit);
 
     useActionListener(cubit, (action) {
-      if (state is LeagueCollectionsNavigateToDetail) {
-        // final jerseyId = action.jerseyId,
-        // context.go('/leagueCollections/$jerseyId');
+      if (action is LeagueCollectionsNavigateToDetail) {
+        final jerseyId = action.jerseyId;
+        context.go('/jerseyDetail/$jerseyId');
       }
     });
 
@@ -82,9 +83,17 @@ class LeagueCollectionsPage extends HookWidget {
                   childAspectRatio: 0.6,
                 ),
                 itemBuilder: (BuildContext context, int index) {
-                  return JerseyCollectionsId(
-                    leagueModels: leagueModels,
-                    jerseyModels: jersey[index],
+                  return GestureDetector(
+                    onTap: () {
+                      context.push(
+                        '/jerseyDetail/${jersey[index].jerseyId}',
+                        extra: jersey[index],
+                      );
+                    },
+                    child: JerseyCollectionsId(
+                      leagueModels: leagueModels,
+                      jerseyModels: jersey[index],
+                    ),
                   );
                 },
               ),
