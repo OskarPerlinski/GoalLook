@@ -19,4 +19,8 @@ class LeagueCubit extends ActionCubit<LeagueState, LeagueAction> {
       emit(LeagueState.error('Failed to load'));
     }
   }
+
+  void navigateToCategoryDetial(String leagueId) {
+    dispatch(LeagueAction.navigateToDetail(leagueId));
+  }
 }

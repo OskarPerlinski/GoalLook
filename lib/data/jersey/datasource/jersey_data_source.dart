@@ -28,4 +28,15 @@ class JerseyDataSource {
       throw Exception('Failed to load.');
     }
   }
+
+  Future<QuerySnapshot> getJerseyByCollectionsId(String leagueId) async {
+    try {
+      return await _firestore
+          .collection('jersey')
+          .where('leagueId', isEqualTo: leagueId)
+          .get();
+    } catch (e) {
+      throw Exception('Failed to load.');
+    }
+  }
 }
