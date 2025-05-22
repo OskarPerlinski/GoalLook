@@ -1,54 +1,44 @@
-👕 GoalLook
-📌 Application Description
+👕 **GoalLook**
+
+📌 **Application Description**  
 GoalLook is a modern mobile application built with Flutter that allows users to browse and add football jerseys from various leagues to their shopping bag. The app supports user authentication, registration, and password recovery via Firebase. It offers a user-friendly interface with logical navigation paths, including categorization by leagues and product types.
 
-✨ Key Features
-🔐 Authentication & Onboarding
-Splash screen with automatic navigation based on user login status
+✨ **Key Features**
 
-Registration via email
+🔐 **Authentication & Onboarding**  
+- Splash screen with automatic navigation based on user login status  
+- Registration via email  
+- Login via email and Google Sign-In  
+- Password recovery supported through Firebase Authentication  
 
-Login via email and Google Sign-In
+🏠 **Home Screen**  
+- Categories such as "Newest Jerseys" and "Most Popular"  
+- League-based filtering: Bundesliga, Serie A, Ligue 1, La Liga  
 
-Password recovery supported through Firebase Authentication
+📂 **Jersey Browsing**  
+- Detailed product pages with photos and descriptions  
+- "Add to Bag" button to add jerseys to the shopping cart  
 
-🏠 Home Screen
-Categories such as "Newest Jerseys" and "Most Popular"
+🛍️ **Shopping Bag (Cart Page)**  
+- List of added jerseys  
+- Ability to remove items from the bag  
+- "Buy Now" button (currently inactive)  
 
-League-based filtering: Bundesliga, Serie A, Ligue 1, La Liga
+🚀 **Splash Screen Logic**  
+- If previously logged in, users are navigated directly to the Home Screen  
+- Otherwise, redirected to the login or registration selection page  
 
-📂 Jersey Browsing
-Detailed product pages with photos and descriptions
+🛠 **Technologies**  
+- Frontend: Flutter  
+- Backend & Authentication: Firebase (Authentication, Firestore)  
+- Routing: GoRouter  
+- State Management: flutter_bloc + flutter_hooks  
+- Dependency Injection: injectable + get_it  
+- Code Generation: freezed, json_serializable  
 
-"Add to Bag" button to add jerseys to the shopping cart
+🧱 **Technical Stack (pubspec.yaml excerpt)**
 
-🛍️ Shopping Bag (Cart Page)
-List of added jerseys
-
-Ability to remove items from the bag
-
-"Buy Now" button (currently inactive)
-
-🚀 Splash Screen Logic
-If previously logged in, users are navigated directly to the Home Screen
-
-Otherwise, redirected to the login or registration selection page
-
-🛠 Technologies
-Frontend: Flutter
-
-Backend & Authentication: Firebase (Authentication, Firestore)
-
-Routing: GoRouter
-
-State Management: flutter_bloc + flutter_hooks
-
-Dependency Injection: injectable + get_it
-
-Code Generation: freezed, json_serializable
-
-🧱 Technical Stack (pubspec.yaml excerpt)
-
+```yaml
 dependencies:
   flutter:
     sdk: flutter
@@ -77,5 +67,5 @@ dev_dependencies:
   freezed: ^3.0.6
   json_serializable: ^6.9.5
 
-  
-📸 App Screenshots
+
+📸 **App Screenshots**
