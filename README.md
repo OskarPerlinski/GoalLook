@@ -1,42 +1,48 @@
-👕 **GoalLook**
+# 👕 GoalLook
 
-📌 **Application Description**  
+## 📌 Application Description  
 GoalLook is a modern mobile application built with Flutter that allows users to browse and add football jerseys from various leagues to their shopping bag. The app supports user authentication, registration, and password recovery via Firebase. It offers a user-friendly interface with logical navigation paths, including categorization by leagues and product types.
 
-✨ **Key Features**
+---
 
-🔐 **Authentication & Onboarding**  
+## ✨ Key Features
+
+### 🔐 Authentication & Onboarding  
 - Splash screen with automatic navigation based on user login status  
 - Registration via email  
 - Login via email and Google Sign-In  
 - Password recovery supported through Firebase Authentication  
 
-🏠 **Home Screen**  
+### 🏠 Home Screen  
 - Categories such as "Newest Jerseys" and "Most Popular"  
 - League-based filtering: Bundesliga, Serie A, Ligue 1, La Liga  
 
-📂 **Jersey Browsing**  
+### 📂 Jersey Browsing  
 - Detailed product pages with photos and descriptions  
 - "Add to Bag" button to add jerseys to the shopping cart  
 
-🛍️ **Shopping Bag (Cart Page)**  
+### 🛍️ Shopping Bag (Cart Page)  
 - List of added jerseys  
 - Ability to remove items from the bag  
 - "Buy Now" button (currently inactive)  
 
-🚀 **Splash Screen Logic**  
+### 🚀 Splash Screen Logic  
 - If previously logged in, users are navigated directly to the Home Screen  
 - Otherwise, redirected to the login or registration selection page  
 
-🛠 **Technologies**  
-- Frontend: Flutter  
-- Backend & Authentication: Firebase (Authentication, Firestore)  
-- Routing: GoRouter  
-- State Management: flutter_bloc + flutter_hooks  
-- Dependency Injection: injectable + get_it  
-- Code Generation: freezed, json_serializable  
+---
 
-🧱 **Technical Stack (pubspec.yaml excerpt)**
+## 🛠 Technologies  
+- **Frontend:** Flutter  
+- **Backend & Authentication:** Firebase (Authentication, Firestore)  
+- **Routing:** GoRouter  
+- **State Management:** flutter_bloc + flutter_hooks  
+- **Dependency Injection:** injectable + get_it  
+- **Code Generation:** freezed, json_serializable  
+
+---
+
+## 🧱 Technical Stack (pubspec.yaml excerpt)
 
 ```yaml
 dependencies:
@@ -68,4 +74,18 @@ dev_dependencies:
   json_serializable: ^6.9.5
 
 
-📸 **App Screenshots**
+---
+
+
+📸 App Screenshots
+![Screenshot_1747943770](https://github.com/user-attachments/assets/a5659553-6d9a-4998-8b05-9c93b09704e5)
+![Screenshot_1747943774](https://github.com/user-attachments/assets/e2bc0027-72a6-4ac4-8603-9d5341c101e3)
+![Screenshot_1747943785](https://github.com/user-attachments/assets/6c5d6b82-917c-44cb-a8da-e7bb29aac5ea)
+![Screenshot_1747943788](https://github.com/user-attachments/assets/6c34dbf4-ff6e-4407-9614-8c01e3c4de65)
+![Screenshot_1747943794](https://github.com/user-attachments/assets/69d91e1a-4e11-43cb-aede-e704dd6390fa)
+![Screenshot_1747943935](https://github.com/user-attachments/assets/81d24635-231e-4a3d-84b4-19538ab96446)
+![Screenshot_1747943942](https://github.com/user-attachments/assets/3c47fa1b-6ce3-433a-9c48-04378f267376)
+![Screenshot_1747943951](https://github.com/user-attachments/assets/1ef0a3c3-23b2-46cc-a98a-3cc4877ca4eb)
+![Screenshot_1747943979](https://github.com/user-attachments/assets/639f8ae0-97eb-4882-a2cc-0f89382b25a9)
+![Screenshot_1747943996](https://github.com/user-attachments/assets/c54aea4f-3fcb-421f-91a7-d198cb04eca4)
+![Screenshot_1747944031](https://github.com/user-attachments/assets/b840796a-749a-4336-9214-72631045d38c)
