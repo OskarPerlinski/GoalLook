@@ -11,6 +11,7 @@ class BagMapper {
       jerseyId: bag.jerseyId,
       price: bag.price,
       images: bag.images,
+      player: bag.player,
     );
   }
 
@@ -21,6 +22,7 @@ class BagMapper {
       jerseyId: dto.jerseyId,
       price: dto.price,
       images: dto.images,
+      player: dto.player,
     );
   }
 }

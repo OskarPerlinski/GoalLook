@@ -23,4 +23,21 @@ class BagDataSource {
       throw Exception('Failed to add to bag');
     }
   }
+
+  Future<QuerySnapshot> getBagProducts() async {
+    try {
+      final user = _auth.currentUser;
+      if (user == null) {
+        throw Exception('User not logged in');
+      }
+
+      return await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('bag')
+          .get();
+    } catch (e) {
+      throw Exception('Failed to load bag.');
+    }
+  }
 }
