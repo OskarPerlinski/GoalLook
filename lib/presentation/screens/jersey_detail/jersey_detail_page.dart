@@ -85,6 +85,7 @@ class JerseyDetailPage extends HookWidget {
                         jerseyId: jerseyId,
                         price: jerseyModels.price,
                         images: jerseyModels.images,
+                        player: jerseyModels.player,
                       ),
                     );
                   },

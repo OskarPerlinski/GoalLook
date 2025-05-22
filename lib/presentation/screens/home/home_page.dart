@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppbar(),
+      appBar: BasicAppbar(showBagIcon: true),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
               LeagueCategory(),
               AppSpacings.medium(),
               JerseyList(text: 'Popular Jersey', type: JerseyType.topSellings),
-              AppSpacings.medium()
+              AppSpacings.medium(),
             ],
           ),
         ),

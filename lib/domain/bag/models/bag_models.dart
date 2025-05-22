@@ -10,5 +10,6 @@ abstract class BagModels with _$BagModels {
     required String jerseyId,
     required int price,
     required List<String> images,
+    required String player,
   }) = _BagModels;
 }

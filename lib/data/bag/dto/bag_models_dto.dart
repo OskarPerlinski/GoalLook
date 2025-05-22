@@ -11,6 +11,7 @@ abstract class BagModelsDto with _$BagModelsDto {
     required String jerseyId,
     required int price,
     required List<String> images,
+    required String player,
   }) = _BagModelsDto;
 
   factory BagModelsDto.fromJson(Map<String, dynamic> json) =>

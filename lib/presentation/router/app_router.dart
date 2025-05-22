@@ -7,6 +7,7 @@ import 'package:goallook/presentation/screens/auth/auth_selection/auth_selection
 import 'package:goallook/presentation/screens/auth/create_account/create_account_page.dart';
 import 'package:goallook/presentation/screens/auth/login/login_page.dart';
 import 'package:goallook/presentation/screens/auth/reset_password/reset_password_page.dart';
+import 'package:goallook/presentation/screens/bag/bag_page.dart';
 import 'package:goallook/presentation/screens/home/home_page.dart';
 import 'package:goallook/presentation/screens/jersey_detail/jersey_detail_page.dart';
 import 'package:goallook/presentation/screens/league_collections/league_collections_page.dart';
@@ -97,5 +98,13 @@ class JerseyDetailPageRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) {
     final jerseyModels = state.extra as JerseyModels;
     return JerseyDetailPage(jerseyId: jerseyId, jerseyModels: jerseyModels);
+  }
+}
+
+@TypedGoRoute<BagPageRoute>(path: AppRoutes.bagPage)
+class BagPageRoute extends GoRouteData {
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const BagPage();
   }
 }

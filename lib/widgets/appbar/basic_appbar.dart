@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:goallook/presentation/theme/app_colors.dart';
-import 'package:goallook/presentation/theme/app_typography.dart'; // Make sure to import your typography
+import 'package:goallook/presentation/theme/app_dimens.dart';
+import 'package:goallook/presentation/theme/app_typography.dart';
 
 class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const BasicAppbar({super.key, this.height, this.showBackButton = false});
+  const BasicAppbar({
+    super.key,
+    this.height,
+    this.showBackButton = false,
+    this.showBagIcon = false,
+  });
 
   final double? height;
   final bool showBackButton;
+  final bool showBagIcon;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
       elevation: 0,
-      backgroundColor: Colors.white,
       automaticallyImplyLeading: false,
       leading:
           showBackButton
@@ -36,6 +43,23 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
       ),
+      actions:
+          showBagIcon
+              ? [
+                Padding(
+                  padding: EdgeInsets.only(right: AppDimens.ml),
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.shopping_bag_outlined,
+                      color: AppColors.black,
+                    ),
+                    onPressed: () {
+                      context.push('/bagPage');
+                    },
+                  ),
+                ),
+              ]
+              : null,
     );
   }
 
