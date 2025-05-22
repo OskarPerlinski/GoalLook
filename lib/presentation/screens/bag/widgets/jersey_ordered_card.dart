@@ -45,7 +45,9 @@ class JerseyOrderedCard extends HookWidget {
         ),
         BagJerseyLoaded(:final bag) =>
           bag.isEmpty
-              ? const Center(child: Text('Your bag is empty :C'))
+              ? Center(
+                child: Text('Your bag is empty.', style: AppTypography.h2),
+              )
               : ListView.separated(
                 itemCount: bag.length,
                 shrinkWrap: true,
@@ -117,7 +119,9 @@ class JerseyOrderedCard extends HookWidget {
                               Align(
                                 alignment: Alignment.bottomRight,
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    cubit.removeBagProducts(jersey.id);
+                                  },
                                   child: Container(
                                     height: 28,
                                     width: 28,
