@@ -30,7 +30,6 @@ class BagDataSource {
       if (user == null) {
         throw Exception('User not logged in');
       }
-
       return await _firestore
           .collection('users')
           .doc(user.uid)
@@ -38,6 +37,24 @@ class BagDataSource {
           .get();
     } catch (e) {
       throw Exception('Failed to load bag.');
+    }
+  }
+
+  Future<void> removeBagProducts(String id) async {
+    try {
+      final user = _auth.currentUser;
+      if (user == null) {
+        throw Exception('User not logged in');
+      }
+
+      await _firestore
+          .collection('users')
+          .doc(user.uid)
+          .collection('bag')
+          .doc(id)
+          .delete();
+    } catch (e) {
+      throw Exception('Failed to remove jersey.');
     }
   }
 }

@@ -18,4 +18,16 @@ class BagJerseyCubit extends Cubit<BagJerseyState> {
       emit(const BagJerseyState.error('Failed to load bag products'));
     }
   }
+
+  Future<void> removeBagProducts(String id) async {
+    emit(BagJerseyState.loading());
+    try{
+      await _bagRepository.removeBagProducts(id);
+      final bag = await _bagRepository.getBagProducts();
+      emit(BagJerseyState.loaded(bag));
+    } catch (e) {
+      emit(BagJerseyState.error('Failed to remove jersey'));
+    }
+  }
+
 }

@@ -12,6 +12,7 @@ class BagMapper {
       price: bag.price,
       images: bag.images,
       player: bag.player,
+      id: bag.id,
     );
   }
 
@@ -23,6 +24,7 @@ class BagMapper {
       price: dto.price,
       images: dto.images,
       player: dto.player,
+      id: dto.id,
     );
   }
 }

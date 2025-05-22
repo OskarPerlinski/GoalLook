@@ -23,8 +23,13 @@ class BagRepositoryImpl implements BagRepository {
     final response = await _bagDataSource.getBagProducts();
     return response.docs.map((doc) {
       final data = doc.data() as Map<String, dynamic>;
-      final dto = BagModelsDto.fromJson(data);
+      final dto = BagModelsDto.fromJson(data..['id'] = doc.id);
       return _bagMapper.toDomain(dto);
     }).toList();
+  }
+
+  @override
+  Future<void> removeBagProducts(String id) async {
+    return _bagDataSource.removeBagProducts(id);
   }
 }
